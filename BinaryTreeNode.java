@@ -575,21 +575,60 @@ public class BinaryTreeNode {
     public static void replacesumwithgreaterNodes(BinaryTreeNode root) {
     	//You have been given a BST you have to replace the nodes with the sum of values greater or equal to that node
     	if(root==null) {
-    		return;
-    	}
-    	replacesumwithgreaterNodes(root.left);
-    	int sum=maxsum(root.right);
-    	root.data=sum+root.data;
-    	replacesumwithgreaterNodes(root.right);
+            return;
+        }
+    	int ans=replace(root,0);
     }
-    public static int maxsum(BinaryTreeNode root) {
-    	if(root==null) {
-    		return 0;
-    	}
-    	int sum=0;
-    	sum=sum+root.data;
-    	int left=maxsum(root.left);
-    	int right=maxsum(root.right);
-    	return sum;
+    public static int replace(BinaryTreeNode root,int sum){
+        if(root==null){
+            return 0;
+        }
+        int right=replace(root.right,sum);
+        int rootdata=root.data;
+        root.data=root.data+right+sum;
+        int left=replace(root.left,root.data);
+        return rootdata+left+right;
+    }
+    //-----------------------------------------------------------------------------------------------------
+    public static ArrayList<Node> levelwiselist(BinaryTreeNode root){
+        if(root==null){
+            return null;
+        }
+        ArrayList<Node> store=new ArrayList<Node>();
+        Queue<BinaryTreeNode>set1=new LinkedList<>();
+        set1.add(root);
+        BinaryTreeNode dummy=new BinaryTreeNode(-1);
+        set1.add(dummy);
+        int count=0;
+        while(true){
+            int size=set1.size()-1;
+            if(size==0){
+                System.out.println(count);
+                break;
+            }
+            count++;
+            BinaryTreeNode parsed=set1.poll();
+            Node head=new Node(parsed.data);
+            Node temp=head;
+            store.add(head);
+            while(size-->0){
+                BinaryTreeNode parsed1=set1.poll();
+                int num=parsed1.data;
+                if(num!=-1){
+                    Node newnode=new Node(num);
+                    temp.next=newnode;
+                    temp=newnode;
+                    temp.next=null;
+                    if(parsed.left!=null){
+                        set1.add(parsed1.left);
+                    }
+                    if(root.right!=null){
+                        set1.add(parsed1.right);
+                    }
+                }
+            }
+            set1.add(dummy);
+        }
+        return store;
     }
 }
