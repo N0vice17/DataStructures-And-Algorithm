@@ -1,4 +1,4 @@
-package Some_important_algos;
+package Stack;
 import java.util.*;
 public class CheckRedundantBrackets {
     /*For a given expression in the form of a string, find if there exist any redundant brackets or not. It is given that the expression contains only rounded brackets or parenthesis and the input expression will always be balanced.

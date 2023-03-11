@@ -1,5 +1,7 @@
+package Stack;
+import LinkedList.*;
 public class StackUsingLL{
-    Node head;
+    LinkedListNode<Integer> head;
     int size;
     public StackUsingLL(){
         head=null;
@@ -9,7 +11,7 @@ public class StackUsingLL{
         return size==0;
     } 
     public void push(int element){
-        Node temp1=new Node(element);
+        LinkedListNode<Integer> temp1=new LinkedListNode<Integer>(element);
         temp1.next=head;
         head=temp1;
         size++;

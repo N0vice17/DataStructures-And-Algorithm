@@ -1,3 +1,4 @@
+package Stack;
 public class StackUsingArray {
     private int arr[];
     private int topIndex;

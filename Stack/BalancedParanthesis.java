@@ -1,4 +1,4 @@
-package Some_important_algos;
+package Stack;
 import java.util.*;
 public class BalancedParanthesis {
     public static boolean helper(String str){

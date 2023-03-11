@@ -1,4 +1,6 @@
+package Tree;
 import java.util.*;
+import LinkedList.*;
 public class BinaryTreeNode {
     public int data;
     public BinaryTreeNode left;
@@ -521,18 +523,18 @@ public class BinaryTreeNode {
         BSTprint(root.right);
     }
     //--------------------------------------------------------------------------------------------------------------
-    public static Node realhead=new Node(-1);
-    public static Node ptr=realhead;
-    public static Node head(BinaryTreeNode root) {
+    public static LinkedListNode<Integer> realhead=new LinkedListNode<Integer>(-1);
+    public static LinkedListNode<Integer> ptr=realhead;
+    public static LinkedListNode<Integer> head(BinaryTreeNode root) {
     	createlist(realhead,root);
     	return realhead.next;
     }
-    public static void createlist(Node head,BinaryTreeNode root) {
+    public static void createlist(LinkedListNode<Integer> head, BinaryTreeNode root) {
     	if(root==null) {
     		return;
     	}
     	createlist(head, root.left);
-    	Node temp=new Node(root.data);
+        LinkedListNode<Integer> temp=new LinkedListNode<Integer>(root.data);
     	ptr.next=temp;
     	ptr=ptr.next;
     	createlist(temp, root.right);
@@ -563,7 +565,7 @@ public class BinaryTreeNode {
     }
     //--------------------------------------------------------------------------------------------------
     public static int LargestBST(BinaryTreeNode root) {
-    	//Given a BinaryTree you have to print the height of the largest BST in the binaryTree
+    	//Given a BinaryTree you have to print the height of the largest Tree.BST in the binaryTree
     	if(checkBST(root)) {
     		return height(root);
     	}
@@ -573,7 +575,7 @@ public class BinaryTreeNode {
     }
     //---------------------------------------------------------------------------------------------------
     public static void replacesumwithgreaterNodes(BinaryTreeNode root) {
-    	//You have been given a BST you have to replace the nodes with the sum of values greater or equal to that node
+    	//You have been given a Tree.BST you have to replace the nodes with the sum of values greater or equal to that node
     	if(root==null) {
             return;
         }
@@ -590,11 +592,11 @@ public class BinaryTreeNode {
         return rootdata+left+right;
     }
     //-----------------------------------------------------------------------------------------------------
-    public static ArrayList<Node> levelwiselist(BinaryTreeNode root){
+    public static ArrayList<LinkedListNode<Integer>> levelwiselist(BinaryTreeNode root){
         if(root==null){
             return null;
         }
-        ArrayList<Node> store=new ArrayList<Node>();
+        ArrayList<LinkedListNode<Integer>> store=new ArrayList<>();
         Queue<BinaryTreeNode>set1=new LinkedList<>();
         set1.add(root);
         BinaryTreeNode dummy=new BinaryTreeNode(-1);
@@ -608,14 +610,14 @@ public class BinaryTreeNode {
             }
             count++;
             BinaryTreeNode parsed=set1.poll();
-            Node head=new Node(parsed.data);
-            Node temp=head;
+            LinkedListNode<Integer> head=new LinkedListNode<Integer>(parsed.data);
+            LinkedListNode<Integer> temp=head;
             store.add(head);
             while(size-->0){
                 BinaryTreeNode parsed1=set1.poll();
                 int num=parsed1.data;
                 if(num!=-1){
-                    Node newnode=new Node(num);
+                    LinkedListNode<Integer> newnode=new LinkedListNode<Integer>(num);
                     temp.next=newnode;
                     temp=newnode;
                     temp.next=null;

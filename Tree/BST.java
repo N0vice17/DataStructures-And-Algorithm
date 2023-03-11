@@ -1,5 +1,7 @@
-//All the functions here are of time complexity of O(logN) if the BST is balanced 
-// If the BST is not balanced then it can go up to O(N)
+package Tree;
+
+//All the functions here are of time complexity of O(logN) if the Tree.BST is balanced
+// If the Tree.BST is not balanced then it can go up to O(N)
 //N = height of the binary search tree.
 public class BST {
     private static BinaryTreeNode root;
@@ -66,7 +68,7 @@ public class BST {
             return isPresenthelper(root.right, num);
         }
     }
-    private static BSTdeletereturn deletehelper(BinaryTreeNode root,int data){
+    private static BSTdeletereturn deletehelper(BinaryTreeNode root, int data){
        if(root==null) {
     	   return new BSTdeletereturn(null,false);
        }

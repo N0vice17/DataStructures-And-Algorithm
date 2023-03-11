@@ -1,6 +1,8 @@
+package Queue;
+import LinkedList.*;
 public class QueueUsingLL {
-    Node head;
-    Node rear;
+    LinkedListNode<Integer> head;
+    LinkedListNode<Integer> rear;
     int size;
     public QueueUsingLL(){
         head=null;
@@ -17,7 +19,7 @@ public class QueueUsingLL {
         return head.data;
     }
     public void enqueue(int element){
-        Node temp=new Node(element);
+        LinkedListNode<Integer> temp=new LinkedListNode<Integer>(element);
         if(head==null){
             head=temp;
             rear=temp;
@@ -52,7 +54,7 @@ public class QueueUsingLL {
             System.out.println("Queue Is Empty");
         }
         else{
-        Node temp=head;
+        LinkedListNode<Integer> temp=head;
         while(temp!=null){
             System.out.print(temp.data+" ");
             temp=temp.next;

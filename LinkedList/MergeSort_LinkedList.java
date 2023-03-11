@@ -1,13 +1,14 @@
+package LinkedList;
 public class MergeSort_LinkedList {
-    public static Node merge(Node left,Node right){
+    public static LinkedListNode<Integer> merge(LinkedListNode<Integer> left, LinkedListNode<Integer> right){
         if(left==null){
             return right;
         }
         if(right==null){
             return left;
         }
-        Node ans=new Node(-1);
-        Node temp=ans;
+        LinkedListNode<Integer> ans=new LinkedListNode<Integer>(-1);
+        LinkedListNode<Integer> temp=ans;
         while(left!=null&&right!=null){
             if(left.data<=right.data){
                 temp.next=left;
@@ -33,32 +34,32 @@ public class MergeSort_LinkedList {
         ans=ans.next;
         return ans;
     }
-    public static Node MergeSort(Node head){
+    public static LinkedListNode<Integer> MergeSort(LinkedListNode<Integer> head){
         if(head==null||head.next==null){
             return head;
         }
-        Node slow=head;
-        Node fast=head;
+        LinkedListNode<Integer> slow=head;
+        LinkedListNode<Integer> fast=head;
         while(fast.next!=null&&fast.next.next!=null){
             slow=slow.next;
             fast=fast.next.next;
         }
-        Node left=head;
-        Node right=slow.next;
+        LinkedListNode<Integer> left=head;
+        LinkedListNode<Integer> right=slow.next;
         slow.next=null;
         left=MergeSort(left);
         right=MergeSort(right);
-        Node result=merge(left,right);
+        LinkedListNode<Integer> result=merge(left,right);
         return result;
     }
     public static void main(String[]args){
-        Node six=new Node(1,null);
-        Node five=new Node(2,six);
-        Node four=new Node(3,five);
-        Node three=new Node(4,four);
-        Node two=new Node(5,three);
-        Node one=new Node(6,two);
-        Node head=MergeSort(one);
-        Node.printList(head);
+        LinkedListNode<Integer> six=new LinkedListNode<Integer>(1,null);
+        LinkedListNode<Integer> five=new LinkedListNode<Integer>(2,six);
+        LinkedListNode<Integer> four=new LinkedListNode<Integer>(3,five);
+        LinkedListNode<Integer> three=new LinkedListNode<Integer>(4,four);
+        LinkedListNode<Integer> two=new LinkedListNode<Integer>(5,three);
+        LinkedListNode<Integer> one=new LinkedListNode<Integer>(6,two);
+        LinkedListNode<Integer> head=MergeSort(one);
+        LinkedListNode.printList(head);
     }
 }

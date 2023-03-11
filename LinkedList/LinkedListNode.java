@@ -1,27 +1,28 @@
+package LinkedList;
 import java.util.*;
-public class Node {
+public class LinkedListNode<T> {
     public int data;
-    public Node next;
+    public LinkedListNode<Integer> next;
     //Start of Singly LinkedList
     /******************************************************************************************************************** */
-    public Node(int Data, Node Next) {
+    public LinkedListNode(int Data,LinkedListNode<Integer>Next) {
         this.data = Data;
         this.next = Next;
     }
 
-    public Node(int Data) {
+    public LinkedListNode(int Data) {
         this.data = Data;
     }
 
-    public static void printList(Node head) {
-        Node temp = head;
+    public static void printList(LinkedListNode<Integer>head) {
+        LinkedListNode<Integer>temp = head;
         while (temp != null) {
             System.out.print(temp.data + " ");
             temp = temp.next;
         }
         System.out.println();
     }
-    public static void printrecursive(Node head){
+    public static void printrecursive(LinkedListNode<Integer>head){
         if(head==null){
             System.out.println( );
             return;
@@ -30,12 +31,12 @@ public class Node {
         printrecursive(head.next);
     }
 
-    public static Node takeInput() {
+    public static LinkedListNode<Integer>takeInput() {
         Scanner input = new Scanner(System.in);
         int num = input.nextInt();
-        Node head = null, tail = null;
+        LinkedListNode<Integer>head = null, tail = null;
         while (num != -1) {
-            Node temp = new Node(num);
+            LinkedListNode<Integer>temp = new LinkedListNode<Integer>(num);
             if (head == null) {
                 head = temp;
                 tail = temp;
@@ -49,11 +50,11 @@ public class Node {
         return head;
     }
 
-    public static Node InsertNode(Node head, int position, int value) {
-        Node temp = head;
+    public static LinkedListNode<Integer>InsertNode(LinkedListNode<Integer>head, int position, int value) {
+        LinkedListNode<Integer>temp = head;
         int count = 0;
         if (position == 0) {
-            Node insert = new Node(value, temp);
+            LinkedListNode<Integer>insert = new LinkedListNode<Integer>(value,temp);
             temp = insert;
             return temp;
         } else {
@@ -68,18 +69,18 @@ public class Node {
                 return head;
             } else {
                 if (temp.next == null) {
-                    Node Insert = new Node(value, null);
+                    LinkedListNode<Integer>Insert = new LinkedListNode<Integer>(value, null);
                     temp.next = Insert;
                 } else {
-                    Node insert = new Node(value, temp.next);
+                    LinkedListNode<Integer>insert = new LinkedListNode<Integer>(value,temp.next);
                     temp.next = insert;
                 }
                 return head;
             }
         }
     }
-    public static Node DeleteNode(Node head,int position){
-        Node temp=head;
+    public static LinkedListNode<Integer>DeleteNode(LinkedListNode<Integer>head,int position){
+        LinkedListNode<Integer>temp=head;
         if(position==0){
             head=temp.next;
             return head;
@@ -102,12 +103,12 @@ public class Node {
             }
         }
     }
-    public static Node InsertRecursive(Node head, int element,int position){
+    public static LinkedListNode<Integer>InsertRecursive(LinkedListNode<Integer>head, int element,int position){
         if(head==null&&position>=0){
             return head;
         }
         if(position==0){
-            Node newnode=new Node(element);
+            LinkedListNode<Integer>newnode=new LinkedListNode<Integer>(element);
             newnode.next=head;
             return newnode;
         }
@@ -116,7 +117,7 @@ public class Node {
             return head;
         }
     }
-    public static Node DeleteRecursive(Node head,int position){
+    public static LinkedListNode<Integer>DeleteRecursive(LinkedListNode<Integer>head,int position){
         if(head==null&&position>=0){
             return head;
         }
@@ -128,32 +129,32 @@ public class Node {
             return head;
         }
     }
-    public static Node ReverseRevursive(Node head){
+    public static LinkedListNode<Integer>ReverseRevursive(LinkedListNode<Integer>head){
         if(head==null||head.next==null){
             return head;
         }
-        Node Smallhead=ReverseRevursive(head.next);
-        Node tail=Smallhead;
-        while(tail.next!=null){ 
+        LinkedListNode<Integer>Smallhead=ReverseRevursive(head.next);
+        LinkedListNode<Integer>tail=Smallhead;
+        while(tail.next!=null){
             tail=tail.next;
         }
         tail.next=head;
         head.next=null;
         return Smallhead;
     }
-    public static Node ReverseBest(Node head){
+    public static LinkedListNode<Integer>ReverseBest(LinkedListNode<Integer>head){
         if(head==null||head.next==null){
             return head;
         }
-        Node smallhead=ReverseBest(head.next);
-        Node tail=head.next;
+        LinkedListNode<Integer>smallhead=ReverseBest(head.next);
+        LinkedListNode<Integer>tail=head.next;
         tail.next=head;
         head.next=null;
         return smallhead;
     }
-    public static void FindMid(Node head){
-        Node slow=head;
-        Node fast=head;
+    public static void FindMid(LinkedListNode<Integer>head){
+        LinkedListNode<Integer>slow=head;
+        LinkedListNode<Integer>fast=head;
         if(head==null){
         System.out.println(-1);    
         }
