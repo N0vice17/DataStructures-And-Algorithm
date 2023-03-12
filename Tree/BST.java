@@ -1,10 +1,9 @@
 package Tree;
-
 //All the functions here are of time complexity of O(logN) if the Tree.BST is balanced
 // If the Tree.BST is not balanced then it can go up to O(N)
 //N = height of the binary search tree.
 public class BST {
-    private static BinaryTreeNode root;
+    private static BinaryTreeNode<Integer> root;
     private static int size;
     public static boolean isPresent(int num){
         return isPresenthelper(root, num);
@@ -26,9 +25,9 @@ public class BST {
     public static void printTree(){
         printTreehelper(root);
     }
-    private static BinaryTreeNode inserthelper(BinaryTreeNode root,int data){
+    private static BinaryTreeNode inserthelper(BinaryTreeNode<Integer> root,int data){
         if(root==null){
-            BinaryTreeNode newroot=new BinaryTreeNode(data);
+            BinaryTreeNode<Integer> newroot=new BinaryTreeNode<Integer>(data);
             return newroot;
         }
         if(data>root.data){
@@ -54,7 +53,7 @@ public class BST {
         printTreehelper(root.left);
         printTreehelper(root.right);
     }
-    private static boolean isPresenthelper(BinaryTreeNode root,int num){
+    private static boolean isPresenthelper(BinaryTreeNode<Integer> root,int num){
         if(root==null){
             return false;
         }
@@ -68,7 +67,7 @@ public class BST {
             return isPresenthelper(root.right, num);
         }
     }
-    private static BSTdeletereturn deletehelper(BinaryTreeNode root, int data){
+    private static BSTdeletereturn deletehelper(BinaryTreeNode<Integer> root, int data){
        if(root==null) {
     	   return new BSTdeletereturn(null,false);
        }
@@ -99,7 +98,7 @@ public class BST {
        root.right=newright.root;
        return new BSTdeletereturn(root,true);
     }
-    private static int minimum(BinaryTreeNode root) {
+    private static int minimum(BinaryTreeNode<Integer> root) {
     	if(root==null) {
     		return Integer.MAX_VALUE;
     	}

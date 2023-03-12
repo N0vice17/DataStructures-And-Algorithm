@@ -2,10 +2,10 @@ package Tree;
 import java.util.*;
 import LinkedList.*;
 public class BinaryTreeNode<T> {
-    public int data;
+    public T data;
     public BinaryTreeNode<Integer> left;
     public BinaryTreeNode<Integer> right;
-    public BinaryTreeNode(int Data) {
+    public BinaryTreeNode(T Data) {
         this.data = Data;
     }
 

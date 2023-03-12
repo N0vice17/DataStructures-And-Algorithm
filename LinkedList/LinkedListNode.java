@@ -1,16 +1,16 @@
 package LinkedList;
 import java.util.*;
 public class LinkedListNode<T> {
-    public int data;
+    public T data;
     public LinkedListNode<Integer> next;
     //Start of Singly LinkedList
     /******************************************************************************************************************** */
-    public LinkedListNode(int Data,LinkedListNode<Integer>Next) {
+    public LinkedListNode(T Data,LinkedListNode<Integer>Next) {
         this.data = Data;
         this.next = Next;
     }
 
-    public LinkedListNode(int Data) {
+    public LinkedListNode(T Data) {
         this.data = Data;
     }
 
