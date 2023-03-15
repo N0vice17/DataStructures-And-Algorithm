@@ -601,36 +601,77 @@ public class BinaryTreeNode<T> {
         set1.add(root);
         BinaryTreeNode<Integer> dummy=new BinaryTreeNode<Integer>(-1);
         set1.add(dummy);
-        int count=0;
         while(true){
-            int size=set1.size()-1;
-            if(size==0){
-                System.out.println(count);
+            int size=set1.size();
+            int num=set1.peek().data;
+            if(size==1&&num==-1){
                 break;
             }
-            count++;
-            BinaryTreeNode<Integer> parsed=set1.poll();
-            LinkedListNode<Integer> head=new LinkedListNode<Integer>(parsed.data);
-            LinkedListNode<Integer> temp=head;
+            BinaryTreeNode<Integer>parsed=set1.poll();
+            LinkedListNode<Integer>head=new LinkedListNode<Integer>(parsed.data);
             store.add(head);
-            while(size-->0){
-                BinaryTreeNode<Integer> parsed1=set1.poll();
-                int num=parsed1.data;
-                if(num!=-1){
-                    LinkedListNode<Integer> newnode=new LinkedListNode<Integer>(num);
-                    temp.next=newnode;
-                    temp=newnode;
+            if(parsed.left!=null){
+                set1.add(parsed.left);
+            }
+            if(parsed.right!=null){
+                set1.add(parsed.right);
+            }
+            LinkedListNode<Integer>temp=head;
+            size=size-1;
+            while(size>0){
+                BinaryTreeNode<Integer>parsed1=set1.poll();
+                if(parsed1.data!=-1){
+                    LinkedListNode<Integer>temp1=new LinkedListNode<Integer>(parsed1.data);
+                    temp.next=temp1;
+                    temp=temp1;
                     temp.next=null;
-                    if(parsed.left!=null){
+                    if(parsed1.left!=null){
                         set1.add(parsed1.left);
                     }
-                    if(root.right!=null){
+                    if(parsed1.right!=null){
                         set1.add(parsed1.right);
                     }
                 }
+                size=size-1;
             }
             set1.add(dummy);
         }
         return store;
     }
+    //------------------------------------------------------------------------------------------------------------------
+    public static void pairsum(BinaryTreeNode<Integer>root,int sum){
+            ArrayList<Integer>value=new ArrayList<>();
+            helper(root,value);
+            Collections.sort(value);
+            for(int i=0;i<value.size()-1;i++){
+                for(int j=i+1;j<value.size();j++){
+                    if(value.get(i)+value.get(j)==sum){
+                        System.out.println(Math.min(value.get(i),value.get(j))+" "+Math.max(value.get(i),value.get(j)));
+                    }
+                }
+            }
+//            System.out.println(value);
+    }
+    public static void helper(BinaryTreeNode<Integer>root,ArrayList<Integer>arr){
+        if(root==null){
+            return ;
+        }
+        helper(root.left,arr);
+        arr.add(root.data);
+        helper(root.right,arr);
+    }
+    //-------------------------------------------------------------------------------------------------------------------
+    public static int LCA(BinaryTreeNode<Integer>root,int val1,int val2){
+        if(root==null){
+            return -1;
+        }
+        if(val1>root.data&&val2>root.data){
+            return LCA(root.right,val1,val2);
+        }
+        if(val1<root.data&&val2<root.data){
+            return LCA(root.left,val1,val2);
+        }
+        return root.data;
+    }
+    //------------------------------------------------------------------------------------------------------------------
 }
