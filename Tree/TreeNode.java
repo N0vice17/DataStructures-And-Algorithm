@@ -153,4 +153,174 @@ public class TreeNode<T> {
         }
         return height+1;
     }
+    public static void post_order(TreeNode<Integer>root){
+        if(root==null){
+            return;
+        }
+        for(int i=0;i<root.children.size();i++){
+            post_order(root.children.get(i));
+        }
+        System.out.print(root.data+" ");
+    }
+    public static boolean Ispresent=true;
+    public static boolean ispresent(TreeNode<Integer>root,int num){
+        if(root==null){
+            return false;
+        }
+        if(root.data==num){
+            Ispresent=true;
+            return Ispresent;
+        }
+        for(int i=0;i<root.children.size();i++){
+            Ispresent=ispresent(root.children.get(i),num);
+        }
+        return Ispresent;
+    }
+    public static int Nodewithmaxsum(TreeNode<Integer>root){
+        if(root==null){
+            return 0;
+        }
+        int sum=0;
+        int index=0;
+        for(int i=0;i<root.children.size();i++){
+            if(sum<SumofNodes(root.children.get(i))){
+                sum=SumofNodes(root.children.get(i));
+                index=root.children.get(i).data;
+            }
+        }
+        return index;
+    }
+    public static int leafNodes(TreeNode<Integer>root){
+        if(root==null){
+            return 0;
+        }
+        int count=0;
+        if(root.children.size()==0){
+            count++;
+        }
+        for(int i=0;i<root.children.size();i++){
+            count=count+leafNodes(root.children.get(i));
+        }
+        return count;
+    }
+    public static boolean checkidentical(TreeNode<Integer>root1,TreeNode<Integer>root2){
+        if(root1==null||root2==null){
+            return false;
+        }
+        boolean a=false;
+        Queue<TreeNode<Integer>>tree1=new LinkedList<>();
+        Queue<TreeNode<Integer>>tree2=new LinkedList<>();
+        tree1.add(root1);
+        tree2.add(root2);
+        while(true){
+            int size1=tree1.size();
+            int size2=tree2.size();
+            if(size1==0||size2==0){
+                break;
+            }
+            while(true) {
+                if(size1==0||size2==0){
+                    break;
+                }
+                TreeNode<Integer> temp1 = tree1.poll();
+                TreeNode<Integer> temp2 = tree2.poll();
+                if (temp1.data == temp2.data) {
+                    a = true;
+                    for (int i = 0; i < temp1.children.size(); i++) {
+                        tree1.add(temp1.children.get(i));
+                    }
+                    for (int i = 0; i < temp2.children.size(); i++) {
+                        tree2.add(temp2.children.get(i));
+                    }
+                } else {
+                    a = false;
+                    break;
+                }
+                size1--;
+                size2--;
+            }
+        }
+        if(tree1.isEmpty()&&tree2.isEmpty()){
+            a=true;
+        }
+        else{
+            a=false;
+        }
+        return a;
+    }
+    public static TreeNode<Integer> nextbig(TreeNode<Integer>root,int num){
+        if(root==null){
+            return null;
+        }
+        ArrayList<TreeNode<Integer>>arr=new ArrayList<>();
+        Queue<TreeNode<Integer>>set1=new LinkedList<>();
+        set1.add(root);
+        while(!set1.isEmpty()){
+            TreeNode<Integer>temp=set1.poll();
+            if(temp.data>num){
+                arr.add(temp);
+            }
+            for(int i=0;i<temp.children.size();i++){
+                set1.add(temp.children.get(i));
+            }
+        }
+        int min=Integer.MAX_VALUE;
+        int index=0;
+        for(int i=0;i<arr.size();i++){
+            if(arr.get(i).data<min){
+                index=i;
+                min=arr.get(i).data;
+            }
+        }
+        if(arr.size()==0){
+            return null;
+        }
+        return arr.get(index);
+    }
+    public static TreeNode<Integer> secondlargest(TreeNode<Integer>root){
+        if(root==null){
+            return null;
+        }
+        ArrayList<TreeNode<Integer>>arr=new ArrayList<>();
+        Queue<TreeNode<Integer>>set1=new LinkedList<>();
+        set1.add(root);
+        while(!set1.isEmpty()){
+            TreeNode<Integer>temp=set1.poll();
+            arr.add(temp);
+            for(int i=0;i<temp.children.size();i++){
+                set1.add(temp.children.get(i));
+            }
+        }
+        int index1=0;
+        int max=Integer.MIN_VALUE;
+        for(int i=0;i<arr.size();i++){
+            max=Math.max(max,arr.get(i).data);
+        }
+        int max1=0;
+        for(int i=0;i<arr.size();i++){
+            if(arr.get(i).data>max&&max!=arr.get(i).data){
+                max1=arr.get(i).data;
+                index1=i;
+            }
+        }
+        if(max1==0){
+            return null;
+        }
+        return arr.get(index1);
+    }
+    public static void replacenodwithdepth(TreeNode<Integer>root){
+        if(root==null){
+            return;
+        }
+        helper(root,0);
+    }
+    public static void helper(TreeNode<Integer>root,int level){
+        if(root==null){
+            return;
+        }
+        root.data=level;
+        for(int i=0;i<root.children.size();i++){
+            helper(root.children.get(i),level+1);
+        }
+    }
 }
