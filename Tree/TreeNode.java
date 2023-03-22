@@ -176,19 +176,27 @@ public class TreeNode<T> {
         }
         return Ispresent;
     }
-    public static int Nodewithmaxsum(TreeNode<Integer>root){
+    public static TreeNode<Integer> Nodewithmaxsum(TreeNode<Integer>root){
         if(root==null){
-            return 0;
+            return null;
         }
         int sum=0;
-        int index=0;
-        for(int i=0;i<root.children.size();i++){
-            if(sum<SumofNodes(root.children.get(i))){
-                sum=SumofNodes(root.children.get(i));
-                index=root.children.get(i).data;
+        TreeNode<Integer>temp1=root;
+        Queue<TreeNode<Integer>>set1=new LinkedList<>();
+        set1.add(root);
+        while(!set1.isEmpty()){
+            TreeNode<Integer>temp=set1.poll();
+            int tempsum=temp.data;
+            for(int i=0;i<temp.children.size();i++){
+                tempsum=tempsum+temp.children.get(i).data;
+                set1.add(temp.children.get(i));
+            }
+            if(tempsum>sum){
+                sum=tempsum;
+                temp1=temp;
             }
         }
-        return index;
+        return temp1;
     }
     public static int leafNodes(TreeNode<Integer>root){
         if(root==null){
@@ -207,46 +215,33 @@ public class TreeNode<T> {
         if(root1==null||root2==null){
             return false;
         }
-        boolean a=false;
+        boolean check=false;
         Queue<TreeNode<Integer>>tree1=new LinkedList<>();
         Queue<TreeNode<Integer>>tree2=new LinkedList<>();
         tree1.add(root1);
         tree2.add(root2);
-        while(true){
-            int size1=tree1.size();
-            int size2=tree2.size();
-            if(size1==0||size2==0){
+        while(!tree1.isEmpty()||!tree2.isEmpty()){
+            TreeNode<Integer>temp1=tree1.poll();
+            TreeNode<Integer>temp2=tree2.poll();
+            if(temp1.data==temp2.data&&temp1.children.size()==temp2.children.size()){
+                check=true;
+                for(int i=0;i<temp1.children.size();i++){
+                    tree1.add(temp1.children.get(i));
+                    tree2.add(temp2.children.get(i));
+                }
+            }
+            else{
+                check=false;
                 break;
             }
-            while(true) {
-                if(size1==0||size2==0){
-                    break;
-                }
-                TreeNode<Integer> temp1 = tree1.poll();
-                TreeNode<Integer> temp2 = tree2.poll();
-                if (temp1.data == temp2.data) {
-                    a = true;
-                    for (int i = 0; i < temp1.children.size(); i++) {
-                        tree1.add(temp1.children.get(i));
-                    }
-                    for (int i = 0; i < temp2.children.size(); i++) {
-                        tree2.add(temp2.children.get(i));
-                    }
-                } else {
-                    a = false;
-                    break;
-                }
-                size1--;
-                size2--;
-            }
         }
-        if(tree1.isEmpty()&&tree2.isEmpty()){
-            a=true;
+        if(tree1.isEmpty()||tree2.isEmpty()){
+            check=true;
         }
         else{
-            a=false;
+            check=false;
         }
-        return a;
+        return check;
     }
     public static TreeNode<Integer> nextbig(TreeNode<Integer>root,int num){
         if(root==null){

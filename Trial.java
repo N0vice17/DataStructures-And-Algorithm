@@ -3,8 +3,8 @@ import java.util.*;
 import LinkedList.*;
 public class Trial {
     public static void main(String[]args){
-        TreeNode<Integer>root=TreeNode.LevelwiseInput();
-        TreeNode.replacenodwithdepth(root);
-        TreeNode.printlevelwisecustomized(root);
+        TreeNode<Integer>root1=TreeNode.LevelwiseInput();
+        TreeNode<Integer>root2=TreeNode.LevelwiseInput();
+        System.out.println(TreeNode.checkidentical(root1, root2));
     }    
 }
