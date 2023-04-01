@@ -14,6 +14,7 @@ public class CheckRedundantBrackets {
              stack.push(c);
          }
          else{
+             System.out.println(stack);
              int count=0;
              while(stack.peek()!='('){
                  count++;
@@ -28,7 +29,6 @@ public class CheckRedundantBrackets {
              }
              count=0;
              stack.pop();
-             //System.out.println(stack.toString());
          }
         }
         System.out.println(a);

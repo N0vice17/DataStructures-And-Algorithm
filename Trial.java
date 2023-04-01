@@ -1,10 +1,14 @@
 import Tree.*;
 import java.util.*;
 import LinkedList.*;
+import Tries_and_Huffman_Coding.*;
 public class Trial {
     public static void main(String[]args){
-        TreeNode<Integer>root1=TreeNode.LevelwiseInput();
-        TreeNode<Integer>root2=TreeNode.LevelwiseInput();
-        System.out.println(TreeNode.checkidentical(root1, root2));
+        Trie node=new Trie();
+        node.add("DEBOJIT");
+        node.add("DONKEY");
+        node.add("DEBO");
+        node.remove("DONKEY");
+        System.out.println(node.search("DEBO"));
     }    
 }
