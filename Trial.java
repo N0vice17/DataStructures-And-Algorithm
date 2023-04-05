@@ -9,6 +9,6 @@ public class Trial {
         node.add("DONKEY");
         node.add("DEBO");
         node.remove("DONKEY");
-        System.out.println(node.search("DEBO"));
+        System.out.println(node.search("DONKEY"));
     }    
 }

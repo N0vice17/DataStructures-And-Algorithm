@@ -48,13 +48,11 @@ public class Trie{
     }
     //-----------------------------------------------------------------------------------
     private static void helperremove(TrieNode root,String word){
-        if(word.length()==0){
+        if(word.length()==1){
+            root.children[word.charAt(0)-'A'].isTerminal=false;
             return;
         }
         helperremove(root.children[word.charAt(0)-'A'], word.substring(1));
-        if(root.children[word.charAt(0)-'A']!=null){
-            root.children[word.charAt(0)-'A'].isTerminal=false;
-        }
     }
     public static void remove(String word){
         helperremove(root, word);
