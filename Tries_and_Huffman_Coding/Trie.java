@@ -1,4 +1,5 @@
 package Tries_and_Huffman_Coding;
+import java.util.*;
 class TrieNode{
     char data;
     boolean isTerminal;
@@ -57,5 +58,35 @@ public class Trie{
     public static void remove(String word){
         helperremove(root, word);
     }
-    //-------------------------------------------------------------------------------
+    //-----------------------------------------------------------------------------
+    public static void allwords(TrieNode root,String word,ArrayList<String>output,String helper){
+        if(root.isTerminal){
+            output.add(helper);
+            System.out.println(helper);
+            return;
+        }
+        if(word.length()>0&&root.children[word.charAt(0)-'A']!=null){
+            allwords(root.children[word.charAt(0)-'A'],word.substring(1), output, helper+word.charAt(0));
+        }
+        else if(word.length()>0&&root.children[word.charAt(0)-'A']==null){
+            return;
+        }
+        for(int i=0;i<root.children.length;i++){
+            if(root.children[i]!=null){
+                allwords(root.children[i],"", output, helper+Character.toString(root.children[i].data));
+            }
+        }
+    }
+    public static void autocomplete(String word,ArrayList<String>arr){
+        for(int i=0;i<arr.size();i++){
+            add(arr.get(i));
+        }
+        ArrayList<String>output=new ArrayList<String>();
+        if(search(word)){
+            output.add(word);
+        }
+        String str="";
+        System.out.println(output);
+        allwords(root,word,output,str);
+    }
 }
