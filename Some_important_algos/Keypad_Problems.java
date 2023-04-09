@@ -46,7 +46,21 @@ public class Keypad_Problems {
         }
         return output;
     }
+    public static void printkeystring(int num,String output){
+        if(num==0){
+            System.out.println(output);
+            return;
+        }
+        String get=getString(num%10);
+        for(int i=0;i<get.length();i++){
+            printkeystring(num/10,(get.charAt(i)+output));
+        }
+    }
     public static void main(String[]args){
-    
+        printkeystring(2374, "");
+        // String []arr=keystring(23);
+        // for(int i=0;i<arr.length;i++){
+        //     System.out.println(arr[i]);
+        // }
     }
 }
