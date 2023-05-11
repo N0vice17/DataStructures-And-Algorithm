@@ -13,7 +13,9 @@ public class LinkedListNode<T> {
     public LinkedListNode(T Data) {
         this.data = Data;
     }
+    public LinkedListNode(){
 
+    }
     public static void printList(LinkedListNode<Integer>head) {
         LinkedListNode<Integer>temp = head;
         while (temp != null) {
