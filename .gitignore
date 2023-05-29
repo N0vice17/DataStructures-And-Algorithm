@@ -1,2 +1,5 @@
 *.class
 Trial.java
+*classpath
+.project
+.settings
