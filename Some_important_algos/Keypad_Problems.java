@@ -57,7 +57,7 @@ public class Keypad_Problems {
         }
     }
     public static void main(String[]args){
-        printkeystring(2374, "");
+        printkeystring(23, "");
         // String []arr=keystring(23);
         // for(int i=0;i<arr.length;i++){
         //     System.out.println(arr[i]);

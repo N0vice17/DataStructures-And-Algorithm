@@ -1,5 +1,10 @@
 *.class
 Trial.java
+<<<<<<< HEAD
 *classpath
 .project
 .settings
+=======
+.classpath
+.project
+>>>>>>> ea1a5d2407ab823bc21cc5c95d5ddd9a5a0a4ac0
