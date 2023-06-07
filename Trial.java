@@ -1,4 +1,3 @@
-package Java;
 import Tree.*;
 import LinkedList.*;
 import Tries_and_Huffman_Coding.*;
