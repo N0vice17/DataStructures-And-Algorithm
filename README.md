@@ -1,4 +1,4 @@
-# Welcome to Algorithm and Data Structure 
+# Welcome to Data Structure and Algorithm
 This is a Open Source Respository and it is focussed on Data Strucutre and Algorithms. Whenever you are stuck at any kind of problem feel free to look into this repo 
 # Steps to follow for Contributing
 1. Fork it
