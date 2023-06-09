@@ -12,8 +12,27 @@ public class Graphs {
             arr[vert1][vert2]=1;
             arr[vert2][vert1]=1;
         }
-        BFS(arr);
+        System.out.println(hashpath(arr,4,0));
     }
+    //---------------------------------------------------------------------------------------------------
+    public static boolean hashpath(int[][]arr,int source,int destination){
+        boolean visited[]=new boolean[arr.length];
+        return hashpathhelper(arr, source, destination, visited);
+    }
+    public static boolean hashpathhelper(int[][]arr,int source,int destination,boolean visited[]){
+        if(source==destination){
+            visited[source]=true;
+            return true;
+        }
+        visited[source]=true;
+        for(int i=0;i<arr.length;i++){
+            if(visited[i]==false&&arr[source][i]==1){
+                hashpathhelper(arr,i, destination, visited);
+            }
+        }
+        return visited[destination];
+    }
+    //----------------------------------------------------------------------------------------------------------
     public static void BFS(int[][]arr){
         boolean visited[]=new boolean[arr.length];
         for(int i=0;i<arr.length;i++){
@@ -37,6 +56,7 @@ public class Graphs {
             }
         }
     }
+    //--------------------------------------------------------------------------------------------------------------
     public static void helperdfs(int[][]arr,int ind,boolean visited[]){
         visited[ind]=true;
         System.out.print(ind+" ");
@@ -50,4 +70,5 @@ public class Graphs {
         boolean visited[]=new boolean[arr.length];
         helperdfs(arr,0,visited);
     }
+    //-----------------------------------------------------------------------------------------------------------
 }
