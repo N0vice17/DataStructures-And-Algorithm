@@ -1,76 +1,60 @@
+package Stack;
 import java.util.*;
-public class infixTopostfix
-{
+public class infixTopostfix {
     int sp;
     char ch[];
     int i;
-    infixTopostfix(int n)
-    {
-        ch=new char[n];
-        sp=-1;
+
+    infixTopostfix(int n) {
+        ch = new char[n];
+        sp = -1;
     }
 
-    void convert(char c[])
-    {
+    void convert(char c[]) {
 
-        char result[]=new char[c.length];
-        int k=0;
-        char s,s2;
-        for(i=0;i<c.length;i++)
-        {
-            s=c[i];
-            if(check(s))
-            {
-                result[k++]=s;
+        char result[] = new char[c.length];
+        int k = 0;
+        char s, s2;
+        for (i = 0; i < c.length; i++) {
+            s = c[i];
+            if (check(s)) {
+                result[k++] = s;
 
-            }
-            else 
-            {
-                while(sp!=-1 && (order(s)<=order(ch[sp])) && s!='(')
-                {
-                    s2=pop();
-                    if(s2=='(')
-                    {
+            } else {
+                while (sp != -1 && (order(s) <= order(ch[sp])) && s != '(') {
+                    s2 = pop();
+                    if (s2 == '(') {
                         break;
 
-                    }
-                    else if(s2!='(')
-                    {
-                        result[k++]=s2;
+                    } else if (s2 != '(') {
+                        result[k++] = s2;
                     }
                 }
-                if(s!=')')
-                {
+                if (s != ')') {
                     push(s);
                 }
 
             }
 
         }
-        while(sp!=-1)
-        {
-            result[k++]=pop();
+        while (sp != -1) {
+            result[k++] = pop();
         }
 
-        for(i=0;i<k;i++)
-        {
-            if(result[i]!='(' && result[i]!=')')
-            {
+        for (i = 0; i < k; i++) {
+            if (result[i] != '(' && result[i] != ')') {
                 System.out.print(result[i]);
             }
         }
 
     }
 
-    boolean check(char p)
-    {
-        return ((p>='0' && p<='9')||(p>='a' && p<='z')||(p>='A' && p<='Z'));
+    boolean check(char p) {
+        return ((p >= '0' && p <= '9') || (p >= 'a' && p <= 'z') || (p >= 'A' && p <= 'Z'));
     }
 
-    int order(char t)
-    {
-        switch(t)
-        {
+    int order(char t) {
+        switch (t) {
             case '(':
             case ')':
                 return 0;
@@ -89,25 +73,22 @@ public class infixTopostfix
         }
     }
 
-    void push(char a)
-    {
+    void push(char a) {
         sp++;
-        ch[sp]=a;
+        ch[sp] = a;
     }
 
-    char pop()
-    {
+    char pop() {
         return (ch[sp--]);
     }
 
-    public static void main(String args[])
-    {
-        Scanner in=new Scanner(System.in);
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
         System.out.println("Enter the expression");
         String expre;
-        expre=in.next();
-        char cc[]=expre.toCharArray();
-        infixTopostfix ob=new infixTopostfix(cc.length);
+        expre = in.next();
+        char cc[] = expre.toCharArray();
+        infixTopostfix ob = new infixTopostfix(cc.length);
         ob.convert(cc);
 
     }

@@ -29,7 +29,7 @@ If the fast pointer reaches null(the value that is pointed to by the last node),
 
 Below is the code snippet to implement Floyd's Cycle Detection
 */
-
+package LinkedList;
 public class FloydCycleDetection
 {
   private ListNode head;
