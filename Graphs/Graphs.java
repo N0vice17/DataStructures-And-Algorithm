@@ -1,4 +1,5 @@
 package Graphs;
+import Graphs.KruskalsAlgo;
 import java.util.*;
 public class Graphs {
     public static void main(String[]args){
