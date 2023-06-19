@@ -1,7 +1,6 @@
 package Graphs;
 import java.util.*;
-public class KruskalsAlgo {
-    static class Edge implements Comparable<Edge>{
+class Edge implements Comparable<Edge>{
         public int vertex1,vertex2,weight;
         public Edge(int vertex1,int vertex2,int weight){
             this.vertex1=vertex1;
@@ -19,6 +18,7 @@ public class KruskalsAlgo {
         }
     
     }
+public class KruskalsAlgo {
     public static int union(int vert,int parents[]){
         int val=parents[vert];
         while(true){
