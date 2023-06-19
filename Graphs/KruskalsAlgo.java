@@ -20,36 +20,26 @@ class Edge implements Comparable<Edge>{
     }
 public class KruskalsAlgo {
     public static int union(int vert,int parents[]){
-        int val=parents[vert];
-        while(true){
-            if(val==parents[val]){
-                break;
-            }
-            val=parents[val];
+        if(parents[vert]==vert){
+            return vert;
         }
-        return val;
+        return union(parents[vert], parents);
     }
-    public static void kruskal(Edge arr[]){
+    public static void kruskal(Edge arr[],int length){
         ArrayList<Edge>ans=new ArrayList<>();
         int parents[]=new int[arr.length];
         for(int i=0;i<parents.length;i++){
             parents[i]=i;
         }
         Arrays.sort(arr);
-        int count=0,val=-1,ind=0;
-        while(count!=arr.length){
-            if(ind==arr.length){
-                break;
-            }
-            if(arr[ind].weight>=val){
-                int vert1=union(arr[ind].vertex1,parents);
-                int vert2=union(arr[ind].vertex2,parents);
-                if(vert1!=vert2){
-                    ans.add(arr[ind]);
-                    parents[vert1]=vert2;
-                    count+=1;
-                    val=arr[ind].weight;
-                }
+        int count=0,ind=0;
+        while(count!=length-1){
+            int vert1=union(arr[ind].vertex1,parents);
+            int vert2=union(arr[ind].vertex2,parents);
+            if(vert1!=vert2){
+                ans.add(arr[ind]);
+                parents[vert1]=vert2;
+                count+=1;
             }
             ind+=1;
         }
@@ -70,6 +60,6 @@ public class KruskalsAlgo {
             arr[i]=inputvert;
         }
         System.out.println("Printing the MST");
-        kruskal(arr);
+        kruskal(arr,v);
     }
 }
