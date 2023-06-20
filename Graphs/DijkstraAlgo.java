@@ -1,7 +1,7 @@
 package Graphs;
 import java.util.*;
 public class DijkstraAlgo{
-    public static int minvertex(Boolean visited[],int distance[]){
+    public static int minvertex(boolean visited[],int distance[]){
         int minvertex=Integer.MAX_VALUE;
         for(int i=0;i<visited.length;i++){
             if(!visited[i]&&(minvertex==Integer.MAX_VALUE||distance[i]<distance[minvertex])){
@@ -11,7 +11,7 @@ public class DijkstraAlgo{
         return minvertex;
     }
     public static void Dijkstra(int[][]arr){
-        Boolean visited[]=new Boolean[arr.length];
+        boolean visited[]=new boolean[arr.length];
         int distance[]=new int[arr.length];
         for(int i=0;i<arr.length;i++){
             visited[i]=false;

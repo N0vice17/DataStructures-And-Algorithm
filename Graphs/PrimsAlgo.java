@@ -1,7 +1,7 @@
 package Graphs;
 import java.util.*;
 public class PrimsAlgo {
-    public static int minvertex(Boolean[]visited,int weight[]){
+    public static int minvertex(boolean[]visited,int weight[]){
         int minvertex=-1;
         for(int i=0;i<visited.length;i++){
             if(!visited[i]&&(minvertex==-1||weight[i]<weight[minvertex])){
@@ -11,14 +11,11 @@ public class PrimsAlgo {
         return minvertex;
     }
     public static void Prim(int[][]arr){
-        Boolean visited[]=new Boolean[arr.length];
+        boolean visited[]=new boolean[arr.length];
         int parent[]=new int[arr.length];
         int weight[]=new int[arr.length];
         for(int i=1;i<arr.length;i++){
             weight[i]=Integer.MAX_VALUE;
-        }
-        for(int i=0;i<arr.length;i++){
-            visited[i]=false;
         }
         parent[0]=-1;
         weight[0]=0;
