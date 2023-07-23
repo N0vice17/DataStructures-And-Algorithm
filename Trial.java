@@ -6,6 +6,7 @@ import Graphs.*;
 public class Trial{
     public static void main(String[]args){
         Scanner input=new Scanner(System.in);
-        System.out.println("HELLO WORLD");
-    }   
+        
+    } 
+         
 }
