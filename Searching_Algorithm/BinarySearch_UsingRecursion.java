@@ -5,7 +5,7 @@ public class BinarySearch_UsingRecursion{
 		if(si>ei){
 			return -1;
 		}
-		int mid=(si+ei)/2;
+		int mid = si + (ei - si) / 2;
 		if(arr[mid]==num){
 			return mid;
 		}
