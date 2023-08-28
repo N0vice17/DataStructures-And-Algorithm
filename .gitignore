@@ -5,3 +5,6 @@ Trial.java
 .settings
 .classpath
 .project
+.out
+.exe
+.vscode
