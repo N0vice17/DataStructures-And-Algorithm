@@ -29,11 +29,11 @@ If you have any issue regarding anything please discuss by creating a issue.
 # The People behind this beautiful maintenance 😎
 **Java**
 
-| [N0vice17](https://github.com/N0vice17) | [Agnik7](https://github.com/Agnik7) | [IndranjanaChatterjee](https://github.com/IndranjanaChatterjee) | [Alik Agarwala](https://github.com/Alik-Agarwala) |
-|---|---|---|---|
+| [N0vice17](https://github.com/N0vice17) | [Agnik7](https://github.com/Agnik7) | [IndranjanaChatterjee](https://github.com/IndranjanaChatterjee) | [Alik Agarwala](https://github.com/Alik-Agarwala) | [Avik Agarwala](https://github.com/AvikAgarwala) |
+|---|---|---|---|---|
 
 **C++**
 
-| [Alik Agarwala](https://github.com/Alik-Agarwala) |
-|---|
+| [Alik Agarwala](https://github.com/Alik-Agarwala) | [Avik Agarwala](https://github.com/AvikAgarwala) |
+|---|---|
 
