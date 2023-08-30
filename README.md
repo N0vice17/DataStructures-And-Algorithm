@@ -37,3 +37,7 @@ If you have any issue regarding anything please discuss by creating a issue.
 | [Alik Agarwala](https://github.com/Alik-Agarwala) | [Avik Agarwala](https://github.com/AvikAgarwala) |
 |---|---|
 
+**C**
+
+| [Avik Agarwala](https://github.com/AvikAgarwala) |
+|---|
