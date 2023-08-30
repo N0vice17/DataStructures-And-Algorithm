@@ -1,10 +1,12 @@
-package Tree;
+
 import java.util.*;
-import LinkedList.*;
+import java.util.LinkedList;
+
 public class BinaryTreeNode<T> {
     public T data;
     public BinaryTreeNode<Integer> left;
     public BinaryTreeNode<Integer> right;
+
     public BinaryTreeNode(T Data) {
         this.data = Data;
     }
@@ -399,7 +401,8 @@ public class BinaryTreeNode<T> {
     }
 
     // --------------------------------------------------------------------------------------------------
-    public static BinaryTreeNode<Integer> helper1(int[] post, int[] in, int poststart, int postend, int instart, int inend) {
+    public static BinaryTreeNode<Integer> helper1(int[] post, int[] in, int poststart, int postend, int instart,
+            int inend) {
         if (instart > inend) {
             return null;
         }
@@ -436,38 +439,41 @@ public class BinaryTreeNode<T> {
     // --------------------------------------------------------------------------------------------------------
     // Here starts the binary search tree
     public static boolean checkBST(BinaryTreeNode<Integer> root) {
-        if(root==null){
+        if (root == null) {
             return true;
         }
-        int left=max(root.left);
-        if(root.data<=left){
+        int left = max(root.left);
+        if (root.data <= left) {
             return false;
         }
-        int right=min(root.right);
-        if(root.data>right){
+        int right = min(root.right);
+        if (root.data > right) {
             return false;
         }
-        boolean isleft=checkBST(root.left);
-        boolean isright=checkBST(root.right);
-        return isleft&&isright;
+        boolean isleft = checkBST(root.left);
+        boolean isright = checkBST(root.right);
+        return isleft && isright;
     }
-    public static int max(BinaryTreeNode<Integer> root){
-        if(root==null){
+
+    public static int max(BinaryTreeNode<Integer> root) {
+        if (root == null) {
             return Integer.MIN_VALUE;
         }
-        int a=max(root.left);
-        int b=max(root.right);
-        return Math.max(root.data,Math.max(a,b));
+        int a = max(root.left);
+        int b = max(root.right);
+        return Math.max(root.data, Math.max(a, b));
     }
-    public static int min(BinaryTreeNode<Integer> root){
-        if(root==null){
+
+    public static int min(BinaryTreeNode<Integer> root) {
+        if (root == null) {
             return Integer.MAX_VALUE;
         }
-        int a=min(root.left);
-        int b=min(root.right);
-        return Math.min(root.data,Math.min(a,b));
+        int a = min(root.left);
+        int b = min(root.right);
+        return Math.min(root.data, Math.min(a, b));
     }
-    //----------------------------------------------------------------------------------------------------------
+
+    // ----------------------------------------------------------------------------------------------------------
     public static boolean BSTsearch(BinaryTreeNode<Integer> root, int x) {
         if (root == null) {
             return false;
@@ -481,7 +487,8 @@ public class BinaryTreeNode<T> {
             return BSTsearch(root.right, x);
         }
     }
-    //----------------------------------------------------------------------------------------------------------
+
+    // ----------------------------------------------------------------------------------------------------------
     public static void printbetweenk1andk2(BinaryTreeNode<Integer> root, int k1, int k2) {
         if (root == null) {
             return;
@@ -496,182 +503,199 @@ public class BinaryTreeNode<T> {
             printbetweenk1andk2(root.left, k1, k2);
         }
     }
-    //-----------------------------------------------------------------------------------------------------------
-    public static BinaryTreeNode<Integer> helper(int start,int end,int[]arr){
-        if(start>end){
+
+    // -----------------------------------------------------------------------------------------------------------
+    public static BinaryTreeNode<Integer> helper(int start, int end, int[] arr) {
+        if (start > end) {
             return null;
         }
-        int mid=(start+end)/2;
-        BinaryTreeNode<Integer> root=new BinaryTreeNode<Integer>(arr[mid]);
-        BinaryTreeNode<Integer> left=helper(start,mid-1,arr);
-        BinaryTreeNode<Integer> right=helper(mid+1,end,arr);
-        root.left=left;
-        root.right=right;
+        int mid = (start + end) / 2;
+        BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(arr[mid]);
+        BinaryTreeNode<Integer> left = helper(start, mid - 1, arr);
+        BinaryTreeNode<Integer> right = helper(mid + 1, end, arr);
+        root.left = left;
+        root.right = right;
         return root;
     }
-    public static BinaryTreeNode<Integer> constructBST(int[]arr){
-        BinaryTreeNode<Integer> root=helper(0, arr.length-1, arr);
+
+    public static BinaryTreeNode<Integer> constructBST(int[] arr) {
+        BinaryTreeNode<Integer> root = helper(0, arr.length - 1, arr);
         return root;
     }
-    //------------------------------------------------------------------------------------------------------------
-    public static void BSTprint(BinaryTreeNode<Integer> root){
-        if(root==null){
+
+    // ------------------------------------------------------------------------------------------------------------
+    public static void BSTprint(BinaryTreeNode<Integer> root) {
+        if (root == null) {
             return;
         }
         BSTprint(root.left);
-        System.out.print(root.data+" ");
+        System.out.print(root.data + " ");
         BSTprint(root.right);
     }
-    //--------------------------------------------------------------------------------------------------------------
-    public static LinkedListNode<Integer> realhead=new LinkedListNode<Integer>(-1);
-    public static LinkedListNode<Integer> ptr=realhead;
+
+    // --------------------------------------------------------------------------------------------------------------
+    public static LinkedListNode<Integer> realhead = new LinkedListNode<Integer>(-1);
+    public static LinkedListNode<Integer> ptr = realhead;
+
     public static LinkedListNode<Integer> head(BinaryTreeNode<Integer> root) {
-    	createlist(realhead,root);
-    	return realhead.next;
+        createlist(realhead, root);
+        return realhead.next;
     }
+
     public static void createlist(LinkedListNode<Integer> head, BinaryTreeNode<Integer> root) {
-    	if(root==null) {
-    		return;
-    	}
-    	createlist(head, root.left);
-        LinkedListNode<Integer> temp=new LinkedListNode<Integer>(root.data);
-    	ptr.next=temp;
-    	ptr=ptr.next;
-    	createlist(temp, root.right);
+        if (root == null) {
+            return;
+        }
+        createlist(head, root.left);
+        LinkedListNode<Integer> temp = new LinkedListNode<Integer>(root.data);
+        ptr.next = temp;
+        ptr = ptr.next;
+        createlist(temp, root.right);
     }
-    //---------------------------------------------------------------------------------------------------
-    public static ArrayList<Integer> RoottoData(BinaryTreeNode<Integer> root,int x){
-        if(root==null){
+
+    // ---------------------------------------------------------------------------------------------------
+    public static ArrayList<Integer> RoottoData(BinaryTreeNode<Integer> root, int x) {
+        if (root == null) {
             return null;
         }
-        if(root.data==x){
-            ArrayList<Integer> arr=new ArrayList<>();
+        if (root.data == x) {
+            ArrayList<Integer> arr = new ArrayList<>();
             arr.add(root.data);
             return arr;
         }
-        ArrayList<Integer>left=RoottoData(root.left, x);
-        if(left!=null){
+        ArrayList<Integer> left = RoottoData(root.left, x);
+        if (left != null) {
             left.add(root.data);
             return left;
         }
-        ArrayList<Integer>right=RoottoData(root.right, x);
-        if(right!=null){
+        ArrayList<Integer> right = RoottoData(root.right, x);
+        if (right != null) {
             right.add(root.data);
             return right;
         }
-        ArrayList<Integer>arr=new ArrayList<>();
+        ArrayList<Integer> arr = new ArrayList<>();
         arr.add(-1);
         return arr;
     }
-    //--------------------------------------------------------------------------------------------------
+
+    // --------------------------------------------------------------------------------------------------
     public static int LargestBST(BinaryTreeNode<Integer> root) {
-    	//Given a BinaryTree you have to print the height of the largest Tree.BST in the binaryTree
-    	if(checkBST(root)) {
-    		return height(root);
-    	}
-    	int left=LargestBST(root.left);
-    	int right=LargestBST(root.right);
-    	return Math.max(left,right);
+        // Given a BinaryTree you have to print the height of the largest Tree.BST in
+        // the binaryTree
+        if (checkBST(root)) {
+            return height(root);
+        }
+        int left = LargestBST(root.left);
+        int right = LargestBST(root.right);
+        return Math.max(left, right);
     }
-    //---------------------------------------------------------------------------------------------------
+
+    // ---------------------------------------------------------------------------------------------------
     public static void replacesumwithgreaterNodes(BinaryTreeNode<Integer> root) {
-    	//You have been given a Tree.BST you have to replace the nodes with the sum of values greater or equal to that node
-    	if(root==null) {
+        // You have been given a Tree.BST you have to replace the nodes with the sum of
+        // values greater or equal to that node
+        if (root == null) {
             return;
         }
-    	int ans=replace(root,0);
+        int ans = replace(root, 0);
     }
-    public static int replace(BinaryTreeNode<Integer> root,int sum){
-        if(root==null){
+
+    public static int replace(BinaryTreeNode<Integer> root, int sum) {
+        if (root == null) {
             return 0;
         }
-        int right=replace(root.right,sum);
-        int rootdata=root.data;
-        root.data=root.data+right+sum;
-        int left=replace(root.left,root.data);
-        return rootdata+left+right;
+        int right = replace(root.right, sum);
+        int rootdata = root.data;
+        root.data = root.data + right + sum;
+        int left = replace(root.left, root.data);
+        return rootdata + left + right;
     }
-    //-----------------------------------------------------------------------------------------------------
-    public static ArrayList<LinkedListNode<Integer>> levelwiselist(BinaryTreeNode<Integer> root){
-        if(root==null){
+
+    // -----------------------------------------------------------------------------------------------------
+    public static ArrayList<LinkedListNode<Integer>> levelwiselist(BinaryTreeNode<Integer> root) {
+        if (root == null) {
             return null;
         }
-        ArrayList<LinkedListNode<Integer>> store=new ArrayList<>();
-        Queue<BinaryTreeNode<Integer>>set1=new LinkedList<>();
+        ArrayList<LinkedListNode<Integer>> store = new ArrayList<>();
+        Queue<BinaryTreeNode<Integer>> set1 = new LinkedList<>();
         set1.add(root);
-        BinaryTreeNode<Integer> dummy=new BinaryTreeNode<Integer>(-1);
+        BinaryTreeNode<Integer> dummy = new BinaryTreeNode<Integer>(-1);
         set1.add(dummy);
-        while(true){
-            int size=set1.size();
-            int num=set1.peek().data;
-            if(size==1&&num==-1){
+        while (true) {
+            int size = set1.size();
+            int num = set1.peek().data;
+            if (size == 1 && num == -1) {
                 break;
             }
-            BinaryTreeNode<Integer>parsed=set1.poll();
-            LinkedListNode<Integer>head=new LinkedListNode<Integer>(parsed.data);
+            BinaryTreeNode<Integer> parsed = set1.poll();
+            LinkedListNode<Integer> head = new LinkedListNode<Integer>(parsed.data);
             store.add(head);
-            if(parsed.left!=null){
+            if (parsed.left != null) {
                 set1.add(parsed.left);
             }
-            if(parsed.right!=null){
+            if (parsed.right != null) {
                 set1.add(parsed.right);
             }
-            LinkedListNode<Integer>temp=head;
-            size=size-1;
-            while(size>0){
-                BinaryTreeNode<Integer>parsed1=set1.poll();
-                if(parsed1.data!=-1){
-                    LinkedListNode<Integer>temp1=new LinkedListNode<Integer>(parsed1.data);
-                    temp.next=temp1;
-                    temp=temp1;
-                    temp.next=null;
-                    if(parsed1.left!=null){
+            LinkedListNode<Integer> temp = head;
+            size = size - 1;
+            while (size > 0) {
+                BinaryTreeNode<Integer> parsed1 = set1.poll();
+                if (parsed1.data != -1) {
+                    LinkedListNode<Integer> temp1 = new LinkedListNode<Integer>(parsed1.data);
+                    temp.next = temp1;
+                    temp = temp1;
+                    temp.next = null;
+                    if (parsed1.left != null) {
                         set1.add(parsed1.left);
                     }
-                    if(parsed1.right!=null){
+                    if (parsed1.right != null) {
                         set1.add(parsed1.right);
                     }
                 }
-                size=size-1;
+                size = size - 1;
             }
             set1.add(dummy);
         }
         return store;
     }
-    //------------------------------------------------------------------------------------------------------------------
-    public static void pairsum(BinaryTreeNode<Integer>root,int sum){
-            ArrayList<Integer>value=new ArrayList<>();
-            helper(root,value);
-            Collections.sort(value);
-            for(int i=0;i<value.size()-1;i++){
-                for(int j=i+1;j<value.size();j++){
-                    if(value.get(i)+value.get(j)==sum){
-                        System.out.println(Math.min(value.get(i),value.get(j))+" "+Math.max(value.get(i),value.get(j)));
-                    }
+
+    // ------------------------------------------------------------------------------------------------------------------
+    public static void pairsum(BinaryTreeNode<Integer> root, int sum) {
+        ArrayList<Integer> value = new ArrayList<>();
+        helper(root, value);
+        Collections.sort(value);
+        for (int i = 0; i < value.size() - 1; i++) {
+            for (int j = i + 1; j < value.size(); j++) {
+                if (value.get(i) + value.get(j) == sum) {
+                    System.out
+                            .println(Math.min(value.get(i), value.get(j)) + " " + Math.max(value.get(i), value.get(j)));
                 }
             }
-//            System.out.println(value);
-    }
-    public static void helper(BinaryTreeNode<Integer>root,ArrayList<Integer>arr){
-        if(root==null){
-            return ;
         }
-        helper(root.left,arr);
-        arr.add(root.data);
-        helper(root.right,arr);
+        // System.out.println(value);
     }
-    //-------------------------------------------------------------------------------------------------------------------
-    public static int LCA(BinaryTreeNode<Integer>root,int val1,int val2){
-        if(root==null){
+
+    public static void helper(BinaryTreeNode<Integer> root, ArrayList<Integer> arr) {
+        if (root == null) {
+            return;
+        }
+        helper(root.left, arr);
+        arr.add(root.data);
+        helper(root.right, arr);
+    }
+
+    // -------------------------------------------------------------------------------------------------------------------
+    public static int LCA(BinaryTreeNode<Integer> root, int val1, int val2) {
+        if (root == null) {
             return -1;
         }
-        if(val1>root.data&&val2>root.data){
-            return LCA(root.right,val1,val2);
+        if (val1 > root.data && val2 > root.data) {
+            return LCA(root.right, val1, val2);
         }
-        if(val1<root.data&&val2<root.data){
-            return LCA(root.left,val1,val2);
+        if (val1 < root.data && val2 < root.data) {
+            return LCA(root.left, val1, val2);
         }
         return root.data;
     }
-    //------------------------------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------------------------------------
 }

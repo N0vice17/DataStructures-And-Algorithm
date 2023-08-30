@@ -2,15 +2,13 @@
 
 import java.util.*;
 import java.util.LinkedList;
-class Generate
-{
-    public static String[] generateNumbers(int n)
-    {
+
+class Generate {
+    public static String[] generateNumbers(int n) {
         String num[] = new String[n];
         Queue<String> q = new LinkedList<String>();
         q.offer("1");
-        for(int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; i++) {
             num[i] = q.poll();
             String num1 = num[i] + "0";
             String num2 = num[i] + "1";
@@ -20,12 +18,11 @@ class Generate
         return num;
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         String result[] = generateNumbers(n);
-        for(String num : result)
+        for (String num : result)
             System.out.println(num + "\t");
     }
 }

@@ -29,46 +29,42 @@ If the fast pointer reaches null(the value that is pointed to by the last node),
 
 Below is the code snippet to implement Floyd's Cycle Detection
 */
-public class FloydCycleDetection
-{
+public class FloydCycleDetection {
   private ListNode head;
-  private class ListNode<T>
-  {
+
+  private class ListNode<T> {
     private T data;
     private ListNode<T> next;
-    public ListNode(T data)
-    {
+
+    public ListNode(T data) {
       this.data = data;
       this.next = null;
     }
   }
+
   public boolean detectLoop() // Detecting whether there is a loop using Floyd's Cycle Detection
   {
     ListNode fastPointer = head;
     ListNode slowPointer = head;
-    while(fastPointer != slowPointer && fastPointer.next != null)
-    {
+    while (fastPointer != slowPointer && fastPointer.next != null) {
       fastPointer = fastPointer.next.next;
       slowPointer = slowPointer.next;
-      if(slowPointer == fastPointer)
+      if (slowPointer == fastPointer)
         return true;
     }
     return false;
   }// End of detectLoop()
-  
+
   public ListNode startingNodeOfLoop() // Returning the starting node of the loop
   {
     ListNode fastPointer = head;
     ListNode slowPointer = head;
-    while(fastPointer != slowPointer && fastPointer.next != null)
-    {
+    while (fastPointer != slowPointer && fastPointer.next != null) {
       fastPointer = fastPointer.next.next;
       slowPointer = slowPointer.next;
-      if(slowPointer == fastPointer)
-      {
+      if (slowPointer == fastPointer) {
         ListNode temp = head;
-        while(temp != slowPointer)
-        {    
+        while (temp != slowPointer) {
           temp = temp.next;
           slowPointer = slowPointer.next;
         }
@@ -77,5 +73,5 @@ public class FloydCycleDetection
     }
     return null;
   }// End of startingNodeOfLoop()
-  
+
 }

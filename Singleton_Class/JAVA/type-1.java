@@ -11,7 +11,7 @@ class Singleton {
             System.out.println("This is a singleton class! Cannot create more objects!");
             return null;
         }
-        
+
         else {
             System.out.println("Object has been created!");
             count++; // increment object counter

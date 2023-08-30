@@ -8,18 +8,19 @@
   The prefix of the expression becomes +A-*B+/CDEF
 */
 
-package Stack;
 import java.util.*;
-public class InfixToPrefixConverter {
+
+public class infixToPrefix {
     private static boolean isOperator(char ch) {
         return ch == '+' || ch == '-' || ch == '*' || ch == '/';
     }
+
     private static int getPrecedence(char op) {
-      /*
-        This method returns the precedence of the operator. 
-        Arguments: char
-        Return type: int
-      */
+        /*
+         * This method returns the precedence of the operator.
+         * Arguments: char
+         * Return type: int
+         */
         switch (op) {
             case '+':
             case '-':
@@ -32,11 +33,12 @@ public class InfixToPrefixConverter {
     }
 
     public static String infixToPrefix(String infix) {
-      /*
-        This method converts the infix expression to prefix expresison, by utilising stacks.
-        Arguments: String
-        Return type: String
-      */
+        /*
+         * This method converts the infix expression to prefix expresison, by utilising
+         * stacks.
+         * Arguments: String
+         * Return type: String
+         */
         Stack<Character> stack_operator = new Stack<>();
         Stack<String> stack_operand = new Stack<>();
 

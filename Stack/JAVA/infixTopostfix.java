@@ -1,5 +1,6 @@
-package Stack;
+
 import java.util.*;
+
 public class infixTopostfix {
     int sp;
     char ch[];
