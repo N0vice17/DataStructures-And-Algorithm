@@ -1,6 +1,5 @@
-package Searching_Algorithm;
 import java.util.*;
-public class Binary_Searching_2D_Array {
+class Binary_Searching_2D_Array {
     static int[] search(int[][]arr,int element){
         int row =0;
         int coloumn =arr.length-1;

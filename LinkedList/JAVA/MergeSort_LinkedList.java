@@ -1,4 +1,3 @@
-package LinkedList;
 public class MergeSort_LinkedList {
     public static LinkedListNode<Integer> merge(LinkedListNode<Integer> left, LinkedListNode<Integer> right){
         if(left==null){

@@ -1,12 +1,13 @@
 // Program to Generate Binary Numbers from 1 to n using Queue
 
 import java.util.*;
+import java.util.LinkedList;
 class Generate
 {
     public static String[] generateNumbers(int n)
     {
         String num[] = new String[n];
-        Queue<String> q = new LinkedList<>();
+        Queue<String> q = new LinkedList<String>();
         q.offer("1");
         for(int i = 0; i < n; i++)
         {

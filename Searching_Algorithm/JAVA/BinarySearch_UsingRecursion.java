@@ -1,6 +1,5 @@
-package Searching_Algorithm;
 import java.util.*;
-public class BinarySearch_UsingRecursion{
+class BinarySearch_UsingRecursion{
 	public static int binarysearch(int arr[],int num,int si,int ei){
 		if(si>ei){
 			return -1;

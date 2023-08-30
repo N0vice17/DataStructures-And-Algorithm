@@ -1,4 +1,3 @@
-package Queue;
 import LinkedList.*;
 public class QueueUsingLL {
     LinkedListNode<Integer> head;

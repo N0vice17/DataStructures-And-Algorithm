@@ -1,4 +1,3 @@
-package LinkedList;
 import java.util.*;
 public class LinkedListNode<T> {
     public T data;
