@@ -6,7 +6,7 @@ class Tower_Of_Hanoi
     {
         if (n == 1)
         {
-            System.out.println("Move disk 1 from rod " +  from_rod + " to rod " + to_rod);
+            System.out.println("Move disk from rod " +  from_rod + " to rod " + to_rod);
             return;
         }
         towerOfHanoi(n-1, from_rod, to_rod, aux_rod);
