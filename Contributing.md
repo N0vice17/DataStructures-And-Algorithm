@@ -21,7 +21,7 @@ git clone https://github.com/your-username/DataStructures-And-Algorithm.git
 git checkout -b your-branch-name
 ```
 
-4. Make sure the branch is up to date with the main branch of the base repository.
+4. Make sure the branch is up to date with the `master` branch of the base repository.
 
 5. Add codes, or make suitable changes in this branch.
 
@@ -38,7 +38,7 @@ $ git push -u origin master
 
 7. Once the changes have been committed, your are all set for creating a pull request.
 
-8. Create a pull request from this branch to the `main` branch of the root directory, and request any one of the assigned reviewers to review your changes.
+8. Create a pull request from this branch to the `master` branch of the root directory, and request any one of the assigned reviewers to review your changes.
 
 9. The PR will be merged once the changes get approved.
 
