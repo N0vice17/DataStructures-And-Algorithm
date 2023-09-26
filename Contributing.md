@@ -5,7 +5,7 @@ Thank you for considering contributing to the "Data Structures and Algorithms" r
 Please take a moment to review these guidelines before getting started:
 
 ## Code of Conduct
-Before contributing, please read and adhere to the [Code of Conduct](https://docs.github.com/en/site-policy/github-terms/github-community-code-of-conduct). We expect all contributors to follow these guidelines to ensure a positive and inclusive community.
+Before contributing, please read and adhere to the [Code of Conduct](https://github.com/N0vice17/DataStructures-And-Algorithm/blob/master/CODE_OF_CONDUCT.md). We expect all contributors to follow these guidelines to ensure a positive and inclusive community.
 
 ## How to Contribute
 
