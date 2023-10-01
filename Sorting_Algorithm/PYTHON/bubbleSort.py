@@ -1,15 +1,15 @@
 def sort(arr):
   '''
-  Method to perform selection sort to sort an array in ascending order.
+  Method to perform bubble sort to sort an array in ascending order.
 
   Args: arr (List)
 
   Returns: Sorted array (List)
   '''
-  for i in range (len(arr)):
-    for j in range(i+1,len(arr)):
-      if arr[i] > arr[j] :
-        arr[i],arr[j] = arr[j],arr[i]
+  for i in range (len(arr)-1):
+    for j in range(len(arr)-i-1):
+      if arr[j] > arr[j+1] :
+        arr[j],arr[j+1] = arr[j+1],arr[j]
   return arr
 
 if __name__ == "__main__":
@@ -21,7 +21,7 @@ if __name__ == "__main__":
     array.append(x)
   print(f"Original array: {array}")
   array = sort(array)
-  print(f"Array after selection sort: {array}")
+  print(f"Array after bubble sort: {array}")
 
 
 """
@@ -35,5 +35,5 @@ Enter the elements:
 4
 3
 Original array: [1, 6, 10, 4, 3]
-Array after selection sort: [1, 3, 4, 6, 10]
+Array after bubble sort: [1, 3, 4, 6, 10]
 """
