@@ -28,17 +28,6 @@ Contributions are always welcome. Feel free to contribute as much as you want. R
 We are open to any type of contribution that is made by you in any language. Please do Contribute.
 If you have any query, you can discuss it by creating an Issue.
 # The Contributors of this Wonderful Project 😎
-**Java**
-
-| [N0vice17](https://github.com/N0vice17) | [Agnik7](https://github.com/Agnik7) | [IndranjanaChatterjee](https://github.com/IndranjanaChatterjee) | [Alik Agarwala](https://github.com/Alik-Agarwala) | [Avik Agarwala](https://github.com/AvikAgarwala) |
-|---|---|---|---|---|
-
-**C++**
-
-| [Alik Agarwala](https://github.com/Alik-Agarwala) | [Avik Agarwala](https://github.com/AvikAgarwala) |
-|---|---|
-
-**C**
-
-| [Avik Agarwala](https://github.com/AvikAgarwala) |
-|---|
+<a href="https://github.com/N0vice17/DataStructures-And-Algorithm/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=N0vice17/DataStructures-And-Algorithm" />
+</a>
