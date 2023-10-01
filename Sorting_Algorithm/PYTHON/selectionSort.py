@@ -17,7 +17,7 @@ if __name__ == "__main__":
   array=[]
   print("Enter the elements:")
   for i in range(n):
-    x = int(input())
+    x = int(input(""))
     array.append(x)
   print(f"Original array: {array}")
   array = sort(array)
