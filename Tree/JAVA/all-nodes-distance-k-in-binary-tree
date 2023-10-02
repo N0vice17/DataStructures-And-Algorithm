@@ -1,0 +1,87 @@
+public class TreeNode {
+      int val;
+      TreeNode left;
+      TreeNode right;
+      TreeNode(int x) { val = x; }
+  }
+ 
+class Solution {
+    
+    private void parentTrack(TreeNode root,HashMap<TreeNode,TreeNode> map){
+        
+         if(root==null)
+            return;
+        
+         if(root.left!=null) {
+              map.put(root.left,root);
+             parentTrack(root.left,map);
+         }
+            
+         if(root.right!=null){   
+           map.put(root.right,root);          
+          parentTrack(root.right,map);
+             
+         }
+    }
+    
+    public List<Integer> distanceK(TreeNode root, TreeNode target, int k) {
+        
+        
+    List<Integer> list=new ArrayList<>();
+    HashMap<TreeNode , TreeNode> map = new HashMap<TreeNode, TreeNode>();
+
+         if(root==null)
+            return list;
+        
+        map.put(root,null);
+        parentTrack(root,map);
+    
+        Queue<TreeNode> queue=new LinkedList<>();
+        HashSet<TreeNode> set=new HashSet<>();
+        
+        queue.add(target);
+        set.add(target);
+          int dist=0;
+        while(!(queue.isEmpty())){
+            
+          
+            int levelsum=queue.size();
+            
+            if(k==dist)
+                break;
+            
+            dist++;
+            
+            for(int i=0;i<levelsum;i++){
+            TreeNode root1=queue.peek();
+          
+              root=queue.poll();
+              
+              if(root.left!=null&&!set.contains(root.left)){
+               queue.add(root.left);
+                  set.add(root.left);
+                  
+              }
+        
+             if(root.right!=null&&!set.contains(root.right)){
+                  queue.add(root.right);
+                  set.add(root.right);         
+             }
+                
+            if(map.get(root)!=null&&!set.contains(map.get(root))){
+              queue.add(map.get(root));
+                set.add(map.get(root));
+       
+            } 
+         }    
+        }
+        
+        while(!(queue.isEmpty())){   
+             TreeNode root1=queue.poll();
+             list.add(root1.val); 
+            
+        }
+        return list;
+        
+    }
+}
