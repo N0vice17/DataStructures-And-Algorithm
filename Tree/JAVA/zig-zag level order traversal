@@ -1,0 +1,51 @@
+public class TreeNode {
+      int val;
+      TreeNode left;
+      TreeNode right;
+      TreeNode() {}
+      TreeNode(int val) { this.val = val; }
+      TreeNode(int val, TreeNode left, TreeNode right) {
+          this.val = val;
+          this.left = left;
+          this.right = right;
+      }
+  }
+ 
+class Solution {
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+           
+         Queue<TreeNode> queue = new LinkedList<>();
+        List<List<Integer >> listOfLists = new ArrayList<List<Integer>>();
+        
+        if(root==null)
+        return listOfLists;
+        
+        queue.add(root);
+        boolean odd=true;
+        while(!(queue.isEmpty())){
+            
+          int levelsum=queue.size();
+            // to use addFirst method we have to use Linked list
+          LinkedList<Integer > list = new LinkedList<>();
+          for(int i=0;i<levelsum;i++){ 
+              root=queue.poll();
+              if(odd)
+              list.add(root1.val);
+              
+              else 
+              list.addFirst(root1.val);
+        
+             if(root.left!=null)
+            queue.add(root.left);
+               
+             if(root.right!=null)
+            queue.add(root.right);
+
+          }  
+            listOfLists.add(list);
+            odd=!odd;
+        }
+     return listOfLists; 
+        
+    }
+}
