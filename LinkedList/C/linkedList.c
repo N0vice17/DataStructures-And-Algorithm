@@ -1,5 +1,4 @@
 #include "linkedList.h"
-#include <stdio.h>
 
 Node	*linked_list_search(int x, Node *p)
 {
