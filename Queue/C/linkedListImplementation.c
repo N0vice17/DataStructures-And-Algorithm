@@ -1,5 +1,4 @@
 #include "linkedListImplementation.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 Queue	*queue_build(void)
