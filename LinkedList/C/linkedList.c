@@ -1,48 +1,43 @@
 #include "linkedList.h"
 
-struct Node // defining the structure
+Node	*linked_list_search(int x, Node *p)
 {
-    int data;
-    Node *next;
-};
-
-Node *create() // creating the list and return the address to the caller function
-{
-    Node *list;
-
-    list = NULL;
-
-    return list;
+	while (p && p->data != x)
+		p = p->next;
+	return (p);
 }
 
-void insert(Node **headPtr, int value)
+void	linked_list_insert(Node *p, Node *q)
 {
-    Node *temp = malloc(sizeof(Node));
-    if (!temp)
-        return;
-    temp->data = value;
-    Node *i = *headPtr; // temporary pointer to traverse till the end
-
-    if (!i) // if list is empty
-        *headPtr = temp;
-
-    else
-    {
-        while (i->next)
-            i = i->next;
-        i->next = temp;
-    }
-
-    temp->next = NULL;
+	p->next = q->next;
+	q->next = p;
 }
 
-void display(Node *node)
+void	linked_list_delete(Node *p)
 {
-    printf("\nThe list is:\n");
+	p->next = p->next->next;
+}
 
-    while (node) // while(node != NULL)
-    {
-        printf("%d ", node->data);
-        node = node->next;
-    }
+void	linked_list_insert_at(Node *p, Node *q, int position)
+{
+	if (position == 0)
+		return (linked_list_insert(q, p));
+
+	int i = 0;
+	while (i < position && q)
+		q = q->next;
+	return (linked_list_insert(p, q));
+}
+
+void	linked_list_delete_at(Node *p, int position)
+{
+	if (position == 0)
+		return;
+
+	int i = 0;
+	while (i < position && p)
+		p = p->next;
+
+	if (p && p->next)
+		return (linked_list_delete(p));
 }
