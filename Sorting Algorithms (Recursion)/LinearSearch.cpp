@@ -16,15 +16,6 @@ bool linearSearch(int arr[], int size, int key){
     }
 }
 
-void print(int arr[], int n) {
-    cout << "Size of array is " << n << endl;
-
-    for(int i=0; i<n; i++) {
-        cout << arr[i] << " ";
-    } cout << endl;
-
-}
-
 int main(int argc, char const *argv[])
 {
     int arr[5] = {3,5,1,2,6};
