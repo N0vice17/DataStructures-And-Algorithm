@@ -30,7 +30,7 @@ Node *reverse(Node *head){
     }
     return prev;
 }
-bool ispalindrome(Node *head1,Node *head2){
+bool ispal(Node *head1,Node *head2){
     while(head1!=NULL&&head2!=NULL){
         if(head1->val!=head2->val) return false;
         else if(head1->val==head2->val){
@@ -55,8 +55,8 @@ int main() {
 	Node *head1=head;
 	Node *mid=findmiddle(head);
 	Node *head2=reverse(mid);
-	bool compare=ispalindrome(head1,head2);
-	if(compare==true) cout<<"TRUE"<<endl;
-	else cout<<"FALSE"<<endl;
+	bool compare=ispal(head1,head2);
+	if(compare==true) cout<<"true"<<endl;
+	else cout<<"false"<<endl;
 	return 0;
 }
