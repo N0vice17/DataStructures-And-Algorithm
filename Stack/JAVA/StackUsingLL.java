@@ -1,5 +1,5 @@
 
-import LinkedList.*;
+import LinkedList.JAVA.*;
 
 public class StackUsingLL {
     LinkedListNode<Integer> head;

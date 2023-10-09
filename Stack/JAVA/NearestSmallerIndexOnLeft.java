@@ -1,13 +1,13 @@
-package Stack.JAVA;
 
 import java.util.Arrays;
 import java.util.Stack;
 
 public class NearestSmallerIndexOnLeft {
     public static void main(String[] args) {
-        int arr[]=new int[]{4, 5, 2, 10, 8};
+        int arr[] = new int[] { 4, 5, 2, 10, 8 };
         System.out.println(Arrays.toString(nearestSmallerIndexOnLeft(arr)));
     }
+
     public static int[] nearestSmallerIndexOnLeft(int[] arr) {
         Stack<Integer> stack = new Stack<>();
         int[] result = new int[arr.length];

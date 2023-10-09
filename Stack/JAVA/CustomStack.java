@@ -1,4 +1,3 @@
-package saikat;
 
 public class CustomStack {
     protected int[] data;
@@ -9,12 +8,13 @@ public class CustomStack {
     public CustomStack() {
         this(DEFAULT_SIZE);
     }
+
     public CustomStack(int size) {
         this.data = new int[size];
     }
 
-    public boolean push(int item){
-        if(isFull()){
+    public boolean push(int item) {
+        if (isFull()) {
             System.out.println("Stack is Full");
             return false;
         }
@@ -24,7 +24,7 @@ public class CustomStack {
     }
 
     public int pop() throws Exception {
-        if (isEmpty()){
+        if (isEmpty()) {
             throw new Exception("cannot pop from an empty stack");
         }
         int removed = data[ptr];
@@ -32,15 +32,15 @@ public class CustomStack {
         return removed;
     }
 
-    public int peek() throws Exception{
-        if (isEmpty()){
+    public int peek() throws Exception {
+        if (isEmpty()) {
             throw new Exception("cannot pop from an empty stack");
         }
         return data[ptr];
     }
 
     public boolean isFull() {
-        return ptr == data.length-1;  //pointer is at last index
+        return ptr == data.length - 1; // pointer is at last index
     }
 
     public boolean isEmpty() {

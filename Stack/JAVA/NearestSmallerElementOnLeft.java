@@ -1,11 +1,10 @@
-package Stack.JAVA;
 
 import java.util.Arrays;
 import java.util.Stack;
 
 public class NearestSmallerElementOnLeft {
     public static void main(String[] args) {
-        int arr[]=new int[]{4, 5, 2, 10, 8};
+        int arr[] = new int[] { 4, 5, 2, 10, 8 };
         System.out.println(Arrays.toString(nearestSmallerElementOnLeft(arr)));
     }
 
@@ -17,11 +16,10 @@ public class NearestSmallerElementOnLeft {
             while (!stack.isEmpty() && stack.peek() >= arr[i]) {
                 stack.pop();
             }
-            if(stack.isEmpty()){ //res[i] = stack.isEmpty() ? -1 : arr[stack.peek()];
-                res[i]=-1;
-            }
-            else{
-                res[i]=stack.peek();
+            if (stack.isEmpty()) { // res[i] = stack.isEmpty() ? -1 : arr[stack.peek()];
+                res[i] = -1;
+            } else {
+                res[i] = stack.peek();
             }
             stack.push(arr[i]);
         }

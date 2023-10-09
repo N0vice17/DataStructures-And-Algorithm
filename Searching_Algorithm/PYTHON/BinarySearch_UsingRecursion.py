@@ -1,11 +1,4 @@
-def binarySearch(arr[],num,start,end):
-  '''
-  Method to perform binary search using recursion.
-
-  Args: arr (List), num (int), start (int), end (int)
-
-  Returns: Position of the num in arr (int)
-  '''
+def binarySearch(arr,num,start,end):
   if start > end:
     return -1
   mid = start + (end-start)//2
@@ -30,17 +23,4 @@ if __name__ == "__main__":
   else:
     print(f"Element found at position {pos} in the array")
 
-"""
-Output:
-
-Enter number of elements: 5
-Enter the elements:
-1
-6
-12
-15
-23
-Enter the element to search: 12
-Element found at position 2 in the array
-"""
   

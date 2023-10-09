@@ -1,4 +1,3 @@
-package Stack.JAVA;
 
 import java.util.Arrays;
 import java.util.Stack;
