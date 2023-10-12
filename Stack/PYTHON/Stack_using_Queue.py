@@ -1,5 +1,5 @@
 #Implementation of Stack using Queue
-from collections import Queue
+from queue import Queue
 class Stack:
     def __init__(self):
         self.q = Queue()
