@@ -46,7 +46,7 @@ int main()
 	printf("\nEnter the element to be searched:");
 	scanf("%d",&ele_search);
 	int find=Search(arr,n,ele_search);
-	if(find!=1)
+	if(find!=-1)
 	{
 		printf("Found at %d",find);
 	}
