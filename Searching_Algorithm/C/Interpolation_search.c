@@ -24,10 +24,10 @@ int Search(int arr[],int n,int ele_search)
 	  }
 	  else if(arr[pos]==ele_search)
 	  {
-	  	return 1;//if found
+	  	return (pos);//if found
 	  }
 	}
-	return 0;//if not found
+	return -1;//if not found
 }
 int main()
 {
@@ -46,9 +46,9 @@ int main()
 	printf("\nEnter the element to be searched:");
 	scanf("%d",&ele_search);
 	int find=Search(arr,n,ele_search);
-	if(find==1)
+	if(find!=1)
 	{
-		printf("Found");
+		printf("Found at %d",find);
 	}
 	else
 	{
