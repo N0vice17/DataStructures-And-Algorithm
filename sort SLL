@@ -1,0 +1,93 @@
+/**
+ * LINKED LIST : 
+ * It is a data structure in which elements are linked to each other using pointers. 
+ * A node represents an element in linked list which have some data and a pointer pointing to next node.
+ * It's structure looks like :
+ * <img>
+ * Here, elements are stored in contiguous memory locations. 
+ * The elements are linked like : 
+ * <img>
+ * 
+ * ADVANTAGES OF LINKED LIST : 
+ * 
+*/
+
+
+/**
+ * ALGORITHM : 
+ * Step 1 : Start
+ * Step 2 : define a node structure
+ * Step 3 : create a list
+ * Step 4 : display the original list
+ * Step 5 : sort the list using selection sort technique
+ * Step 6 : display the sorted list
+ * Step 7 : END
+*/
+
+#include<stdio.h>
+#include<stdlib.h>
+// #define NULL = 0
+
+typedef struct node {
+    struct node *next;
+    int data;
+} l ;
+
+l *head;
+void create(l *);   //creates the list
+void display(l *);  //displays the list
+void sort(l *);     //sorts the list
+void swap(l *, l *);    //swaps two nodes in a list
+
+int main() {
+    head = (l *)malloc(sizeof(l));
+    create(head);
+    display(head);
+    printf("\nAfter sorting : ");
+    sort(head);
+    display(head);
+}
+
+void create(l *ptr) {
+    char c;
+    printf("\nEnter value : ");
+    scanf("%d",&ptr->data);
+    ptr->next = NULL;
+    printf("Continue? y/n : ");
+    scanf(" %c",&c);
+    if(c=='y' || c=='Y') {  //creating another node
+        ptr->next = (l *)malloc(sizeof(l)); //new nodes address stored in the next part of the current node
+        ptr = ptr->next;
+        create(ptr);
+    }
+}
+
+void display(l *ptr) {
+    printf("\nLIST : ");
+    while(ptr) {
+        printf("%d -> ",ptr->data);
+        ptr = ptr->next;
+    }
+    printf("NULL\n");
+}
+
+void sort(l *ptr)  {
+    l *ptr1 = NULL;
+    if(!ptr)
+        return;
+    while(ptr) {    //using selection sort technique
+        ptr1 = ptr->next;
+        while(ptr1) {
+            if(ptr->data > ptr1->data)
+                swap(ptr, ptr1);    //swaps the data of the nodes
+            ptr1 = ptr1->next;
+        }
+        ptr = ptr->next;
+    }
+}
+
+void swap(l *a, l *b) {
+    int tmp = a->data;
+    a->data = b->data;
+    b->data = tmp;
+}
